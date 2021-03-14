@@ -1,0 +1,190 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+/*********************
+variables
+*********************/
+$siva: #dbdbdb;
+$tekst: #b5b5b5;
+$bela: white;
+$fontFamily: 'Open Sans', sans-serif;
+/*********************
+basic styles
+*********************/
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    line-height: 1.6;
+    font-family: $fontFamily;
+    font-size: 16px;
+}
+.container {
+    width: 80%;
+    margin: auto;
+}
+/*********************
+mixins
+*********************/
+@mixin flex($justify,$align,$direction){
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: $justify;
+    align-items: $align;
+    flex-direction: $direction;
+}
+@mixin hr {
+    width: 20%;
+    color: $bela;
+    margin-top: 30px; 
+
+}
+@mixin btn {
+    padding: 10px 20px;
+    background: $bela;
+    color: black;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    margin: 20px 20px;
+    border: 2px solid $tekst;
+}
+/*********************
+header
+*********************/
+header {
+    background: linear-gradient(rgba(black,.4),rgba(black,.4)), url(../img/header.jpg);
+    height: 90vh;
+    background-position: center;
+    background-size: cover;
+    color: $bela;
+    @include flex(center,center,column);
+    @media(max-width: 767px) {
+        text-align: center;
+    }
+    p {
+        font-size: 1rem;
+        text-transform: uppercase;   
+    }   
+    hr {
+        @include hr;
+    }
+    h1 {
+        font-size: 6rem;
+        font-weight: 400;
+        @media(max-width: 767px) {
+            font-size: 3rem;
+        }
+    }
+}
+/*********************
+section one
+*********************/
+.one {
+    background: $siva;
+    .container {
+        padding: 70px 0px;
+        @include flex(space-between,center,row);
+        @media(max-width: 767px) {
+            @include flex(space-between,center,column);
+        }
+        article {
+            flex: 0 0 48%;
+            text-align: center;
+            background: $bela;
+            @include flex(space-between,center,column);
+            @media(max-width: 767px) {
+                margin-bottom: 20px;
+            }
+            img {
+                width: 100%;
+            }
+            hr {
+                width: 30%;
+                margin-top: 15px;
+                margin-bottom: 5px;
+                color: $siva;
+            }
+            h4 {
+                margin-top: 30px;
+                color: $tekst;
+                font-weight: 100;
+                text-transform: uppercase;
+                font-size: 0.6rem;
+                word-spacing: 5px;
+            }
+            h2 {
+                font-weight: 400;
+                font-size: 1.4rem;
+                margin-bottom: 30px;
+            }
+            p {
+                color: $tekst;
+                font-size: 0.7rem;
+                width: 90%;
+            }
+        }
+        button {
+            @include btn;
+        }
+    }
+}
+/*********************
+section two
+*********************/
+.two {
+    background: linear-gradient(rgba(black,.4),rgba(black,.4)), url(../img/header.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 50px 0;
+    @include flex(space-between,center,column);
+    text-align: center;
+    color: $bela;
+    hgroup {
+        @include flex(space-between,center,column);
+        hr {
+            width: 90%;
+            margin-top: 15px;
+            margin-bottom: 5px;
+            color: $siva;
+        }
+    }
+}
+/*********************
+section three
+*********************/
+.three {
+    background: $siva;
+    padding: 50px 0;
+    @include flex(space-between,center,column);
+    hgroup {
+        color: black;
+        @include flex(space-between,center,column);
+        @media(max-width: 767px) {
+            text-align: center;
+        }
+        p {
+            font-size: 0.6rem;
+            margin-bottom: 20px;
+            word-spacing: 3px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 100;
+        }
+        h1 {
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+    }
+    article {
+        @include flex(space-between,center,row);
+        @media(max-width: 767px) {
+            @include flex(space-between,center,column);
+        }
+        img {
+            flex: 0 0 49%;
+            width: 100%;
+            margin-bottom: 40px;
+            border: 15px solid $bela;
+        }
+    }
+}
